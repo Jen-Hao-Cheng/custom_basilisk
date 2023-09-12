@@ -1,6 +1,6 @@
 
 from Basilisk.architecture import bskLogging
-from Basilisk.architecture.messaging import AngleMsgPayload  # import the message definitions
+from Basilisk.architecture import messaging  # import the message definitions
 from Basilisk.ExternalModules import PIDControl  # import the module that is to be tested
 # from Basilisk.ExternalModules.architecture import messaging
 # Import all of the modules that we are going to be called in this simulation
@@ -36,13 +36,13 @@ def run():
     
     # Create input message and size it because the regular creator of that message
     # is not part of the test.
-    refMessageData = AngleMsgPayload.AngleMsgPayload()  # Create a structure for the reference input
+    refMessageData = messaging.AngleMsgPayload()  # Create a structure for the reference input
     refMessageData.angle = 1
-    refInputMsg = AngleMsgPayload.AngleMsg().write(refMessageData)
+    refInputMsg = messaging.AngleMsg().write(refMessageData)
     
-    angMessageData = AngleMsgPayload.AngleMsgPayload()
+    angMessageData = messaging.AngleMsgPayload()
     angMessageData.angle = 0
-    angInputMsg = AngleMsgPayload.AngleMsg().write(angMessageData)
+    angInputMsg = messaging.AngleMsg().write(angMessageData)
     
     
     # Setup logging on the test module output message so that we get all the writes to it

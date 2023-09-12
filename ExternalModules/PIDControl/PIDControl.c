@@ -2,12 +2,9 @@
 #include "PIDControl.h"
 #include "string.h"
 
-
-
 /*
  Pull in support files from other modules.  Be sure to use the absolute path relative to Basilisk directory.
  */
-#include "architecture/utilities/linearAlgebra.h"
 
 
 /*!

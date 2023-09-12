@@ -13,9 +13,9 @@
 
 %include "PIDControl.h"
 
-%include "../customBSK/msgPayloadDefC/AngleMsgPayload.h"
-%include "../customBSK/msgPayloadDefC/ControlMsgPayload.h"
+%include "msgPayloadDefC/AngleMsgPayload.h"
 struct AngleMsg_C;
+%include "msgPayloadDefC/ControlMsgPayload.h"
 struct ControlMsg_C;
 
 %pythoncode %{

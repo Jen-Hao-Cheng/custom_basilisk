@@ -55,7 +55,7 @@ def run():
     
     # Need to call the self-init and cross-init methods
     scSim.InitializeSimulation()
-    
+    print("---------------------------------------------------------")
     #
     scSim.TotalSim.SingleStepProcesses()
     

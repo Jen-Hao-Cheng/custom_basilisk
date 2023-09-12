@@ -34,8 +34,8 @@ void Reset_PIDControl(PIDControlConfig *configData, uint64_t callTime, int64_t m
     
     char info[MAX_LOGGING_LENGTH];
     sprintf(info,
-     "REset previousError = %f, accumulativeError = %f in reset.",
-     configData->previousError, configData->accumulativeError);
+     "Reset previousError = %f, accumulativeError = %f in reset, Kp = %f",
+     configData->previousError, configData->accumulativeError, configData->Kp);
     _bskLog(configData->bskLogger, BSK_INFORMATION, info);
 }
 
@@ -53,7 +53,6 @@ void Update_PIDControl(PIDControlConfig *configData, uint64_t callTime, int64_t 
 
     double reference = 0;           /*!< reference input */
     double angle = 0;               /*!< angle */
-    double u = 0;                   /*!< u */
     double error = 0;               /*!< error */
 
     // always zero the output buffer first
@@ -80,7 +79,7 @@ void Update_PIDControl(PIDControlConfig *configData, uint64_t callTime, int64_t 
     /* this logging statement is not typically required.  It is done here to see in the
      quick-start guide which module is being executed */
     char info[MAX_LOGGING_LENGTH];
-    sprintf(info, "u = %f", u);
+    sprintf(info, "error = %f, u = %f", error, controlOutMsgBuffer.u);
     _bskLog(configData->bskLogger, BSK_INFORMATION, info);
 
     return;
